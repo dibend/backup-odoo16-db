@@ -27,4 +27,4 @@ This script automates the process of backing up a PostgreSQL database used by Od
 ### Command Syntax
 
 ```bash
-./backup_script.sh <LOCAL_BACKUP_DIR> <EXTERNAL_BACKUP_DIR> <DB_NAME> <DB_USER>
+./backup-odoo16-db.sh <LOCAL_BACKUP_DIR> <EXTERNAL_BACKUP_DIR> <DB_NAME> <DB_USER>
