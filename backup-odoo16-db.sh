@@ -5,6 +5,7 @@ LOCAL_BACKUP_DIR="$1"
 EXTERNAL_BACKUP_DIR="$2"
 DB_NAME="$3"
 DB_USER="$4"
+SHELL_USER=`whoami`
 TIMESTAMP=$(date +"%Y%m%d%H%M%S")
 BACKUP_FILE="$LOCAL_BACKUP_DIR/odoo_db_${TIMESTAMP}.dump"
 
@@ -21,7 +22,7 @@ if [ $? -eq 0 ]; then
         echo "Backup successfully copied to $EXTERNAL_BACKUP_DIR"
         
         # Optionally, adjust ownership to david
-        sudo chown david:david "$EXTERNAL_BACKUP_DIR/$(basename "$BACKUP_FILE")"
+        sudo chown "$SHELL_USER":"$SHELL_USER" "$EXTERNAL_BACKUP_DIR/$(basename "$BACKUP_FILE")"
     else
         echo "Failed to copy backup to external SSD."
         exit 2
